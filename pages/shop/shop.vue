@@ -1,6 +1,6 @@
 <template>
-	<view class="content">
-		<i class="iconfont icon-shezhi"></i>
+	<view>
+		
 	</view>
 </template>
 
@@ -8,16 +8,15 @@
 	export default {
 		data() {
 			return {
+				
 			}
 		},
-		onLoad() {
-
-		},
 		methods: {
-
+			
 		}
 	}
 </script>
 
 <style>
+
 </style>
