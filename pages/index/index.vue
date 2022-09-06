@@ -1,9 +1,13 @@
 <template>
 	<view class="content">
-		<Swiper :swiperList="swiperList"></Swiper>
+	<!-- 	<Swiper :swiperList="swiperList"></Swiper>
 		<Recommend :recommedList="recommedList"></Recommend>
 		<Card cardTitle="猜你喜欢"></Card>
-		<CommoditList></CommoditList>
+		<CommoditList></CommoditList> -->
+		<Banner></Banner>
+		<Icons></Icons>
+		<Card cardTitle="热销爆品"></Card>
+		<Hot></Hot>
 	</view>
 </template>
 
@@ -12,6 +16,9 @@
 	import Recommend from '@/components/index/Recommend.vue'
 	import Card from '@/components/common/Card.vue'
 	import CommoditList from '@/components/common/CommoditList.vue'
+	import Banner from '@/components/index/Banner.vue'
+	import Icons from '@/components/index/Icons.vue'
+	import Hot from '@/components/index/Hot.vue'
 	export default {
 		data() {
 			return {
@@ -36,40 +43,47 @@
 					"http://g.hiphotos.baidu.com/image/pic/item/6d81800a19d8bc3e770bd00d868ba61ea9d345f2.jpg",
 				],
 				recommedList: [{
-					bigUrl: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0C/05/ChMkJ14dLNeIfJBuAAZKuwc_TagAAwWUAJPWVAABkrT442.jpg',
-					children: [{
-						url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0C/05/ChMkJl4dLNWICWDkAAJuLMSELg4AAwWUAIyjRcAAm5E585.jpg'
-					}, {
-						url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0C/05/ChMkJ14dLNyIUDBWAANHiB77LTsAAwWUALyl1gAA0eg629.jpg'
-					}, {
-						url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0C/05/ChMkJl4dNbmIS-1MAAYHKJ-tub0AAwWXACrfHkABgdA472.jpg'
-					}]
-				}, {
-					bigUrl: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/00/07/ChMkJl3qNKaIDNA2AARqqK0FxbEAAvnJAJbLQMABGrA592.jpg',
-					children: [{
-						url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/00/07/ChMkJ13qNJeIcWlLAAXZO1T9wbMAAvnJACT_eMABdlT817.jpg'
-					}, {
-						url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/00/07/ChMkJl3qO7qIUpr0AATXU2iIqowAAvnKwIEVqMABNdr420.jpg'
-					}, {
-						url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/00/07/ChMkJl3qNJ2IFiI6AAOv3s2X_20AAvnJAFb2ZcAA6_2818.jpg'
-					}]
-				}, {
-					bigUrl: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0E/08/ChMkJl3g7o-Ibp4nAAYg0I-lImUAAvfjgFkfbYABiDo544.jpg',
-					children: [{
-						url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0E/08/ChMkJ13g7oWIat4NAANPB0GCZbsAAvfjQN2xtcAA08f105.jpg'
-					}, {
-						url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0E/08/ChMkJl3g7oeIaGWyAAI4GY0ZTs8AAvfjQPPAaQAAjgx971.jpg'
-					}, {
-						url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0E/08/ChMkJl3g7oKIeKcxAAVLWWHqK2QAAvfjQMJ3CUABUtx280.jpg'
-					}]
-				}]
+						bigUrl: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0C/05/ChMkJ14dLNeIfJBuAAZKuwc_TagAAwWUAJPWVAABkrT442.jpg',
+						children: [{
+							url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0C/05/ChMkJl4dLNWICWDkAAJuLMSELg4AAwWUAIyjRcAAm5E585.jpg'
+						}, {
+							url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0C/05/ChMkJ14dLNyIUDBWAANHiB77LTsAAwWUALyl1gAA0eg629.jpg'
+						}, {
+							url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0C/05/ChMkJl4dNbmIS-1MAAYHKJ-tub0AAwWXACrfHkABgdA472.jpg'
+						}]
+					},
+					{
+						bigUrl: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/00/07/ChMkJl3qNKaIDNA2AARqqK0FxbEAAvnJAJbLQMABGrA592.jpg',
+						children: [{
+							url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/00/07/ChMkJ13qNJeIcWlLAAXZO1T9wbMAAvnJACT_eMABdlT817.jpg'
+						}, {
+							url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/00/07/ChMkJl3qO7qIUpr0AATXU2iIqowAAvnKwIEVqMABNdr420.jpg'
+						}, {
+							url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/00/07/ChMkJl3qNJ2IFiI6AAOv3s2X_20AAvnJAFb2ZcAA6_2818.jpg'
+						}]
+					},
+					{
+						bigUrl: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0E/08/ChMkJl3g7o-Ibp4nAAYg0I-lImUAAvfjgFkfbYABiDo544.jpg',
+						children: [{
+							url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0E/08/ChMkJ13g7oWIat4NAANPB0GCZbsAAvfjQN2xtcAA08f105.jpg'
+						}, {
+							url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0E/08/ChMkJl3g7oeIaGWyAAI4GY0ZTs8AAvfjQPPAaQAAjgx971.jpg'
+						}, {
+							url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0E/08/ChMkJl3g7oKIeKcxAAVLWWHqK2QAAvfjQMJ3CUABUtx280.jpg'
+						}]
+					},
+				],
+				
 			}
 		},
 		components: {
 			Swiper,
 			Recommend,
 			Card,
-			CommoditList
+			CommoditList,
+			Banner,
+			Icons,
+			Hot
 		},
 		onLoad() {
 
@@ -82,6 +96,7 @@
 
 <style scoped>
 	.content {
+		height: 100%;
 		padding-bottom: 100rpx;
 		background-color: #eef7f2;
 	}

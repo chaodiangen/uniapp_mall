@@ -1,8 +1,7 @@
 <template>
 	<view class="banner">
-		<image class="banner-img"
-			src="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0D/03/ChMkJ13bhaiIDDPRAALxMj1u384AAvaKAKCRUUAAvFK735.jpg"
-			mode=""></image>
+		<image class="banner-img" src="https://cdn.pixabay.com/photo/2022/01/06/14/41/blockchain-6919617_960_720.jpg" mode="">
+		</image>
 	</view>
 </template>
 

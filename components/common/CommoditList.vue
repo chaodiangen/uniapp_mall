@@ -1,12 +1,12 @@
 <template>
 	<view class="commodit-list">
 		<!-- 单个卡片 -->
-		<Commodity :dataList="commoditList"></Commodity>
+		<CommodityFall :dataList="commoditList"></CommodityFall>
 	</view>
 </template>
 
 <script>
-	import Commodity from './Commodity.vue'
+	import CommodityFall from './CommodityFall.vue'
 	export default {
 		data() {
 			return {
@@ -47,7 +47,7 @@
 			}
 		},
 		components:{
-			Commodity
+			CommodityFall
 		},
 		methods: {
 			

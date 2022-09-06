@@ -1,28 +1,13 @@
 <template>
 	<view class="commodity">
-		<view class="commodity-left">
-			<view class="commodity-item" v-for="(item,i) in goodsListL" :key="item.id*i">
-				<image class="commodity-img" :src="item.url" mode=""></image>
-				<view class="commodity-content">
-					<text class="commodity-name uni-product-title">{{ item.title }}</text>
-					<view class="price">
-						<text class="pprice">￥ {{ item.pprice }}</text>
-						<text class="oprice">￥ {{ item.oprice }}</text>
-						<text class="discount">{{ item.discount }}折</text>
-					</view>
-				</view>
-			</view>
-		</view>
-		<view class="commodity-right">
-			<view class="commodity-item" v-for="(item,c) in goodsListR" :key="c+100">
-				<image class="commodity-img" :src="item.url" mode=""></image>
-				<view class="commodity-content">
-					<text class="commodity-name uni-product-title">{{ item.title }}</text>
-					<view class="price">
-						<text class="pprice">￥ {{ item.pprice }}</text>
-						<text class="oprice">￥ {{ item.oprice }}</text>
-						<text class="discount">{{ item.discount }}折</text>
-					</view>
+		<view class="commodity-item" :style="{'width':itemW+'rpx'}" v-for="(item,i) in dataList" :key="item.id">
+			<image class="commodity-img" :style="{'height':imgH+'rpx'}" :src="item.url" mode=""></image>
+			<view class="commodity-content">
+				<text class="commodity-name uni-product-title">{{ item.title }}</text>
+				<view class="price">
+					<text class="pprice">￥ {{ item.pprice }}</text>
+					<text class="oprice">￥ {{ item.oprice }}</text>
+					<text class="discount">{{ item.discount }}折</text>
 				</view>
 			</view>
 		</view>
@@ -34,43 +19,24 @@
 		props: {
 			dataList: {
 				type: Array
+			},
+			itemW: {
+				type: String,
+				default: '370rpx'
+			},
+			imgH: {
+				type: String,
+				default: '375rpx'
 			}
 		},
-		data() {
-			return {
-				goodsListL: [],
-				goodsListR: []
-			}
-		},
-		mounted() {
-			//res.result.data就是从接口获取的数据
-			let dataL = this.dataList;
-			let dataR = this.dataList;
-			let len = this.dataList.length;
-			let min = Math.ceil(len / 2);
-			console.log(min)
-			let rightList = dataR.splice(min, len);
-			let leftList = dataL.splice(0, min);
-			this.goodsListR = this.goodsListR.concat(rightList);
-			this.goodsListL = this.goodsListL.concat(leftList);
-			console.log(this.goodsListL)
-		}
 	}
 </script>
 
 <style scoped lang="scss">
 	.commodity {
 		display: flex;
-		justify-content: space-between;
-		.commodity-right,
-		.commodity-left {
-			display: flex;
-			flex-direction: column;
-			align-itema: flex-start;
-		}
 
 		.commodity-item {
-			width: 370rpx;
 			padding-bottom: 20rpx;
 			background-color: #fff;
 			border-radius: 10rpx;
@@ -79,7 +45,7 @@
 
 			.commodity-img {
 				width: 100%;
-				height: 375rpx;
+
 			}
 		}
 
