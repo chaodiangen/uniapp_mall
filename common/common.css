@@ -3,14 +3,25 @@
  */
 
 /* 默认字体颜色 */
-.f-color {
-	color: #636263;
+view {
+	color: #15231b;
+	font-size: 28rpx;
 }
-
+.uni-title {
+	font-weight: bold;
+	font-size: 30rpx;
+}
+.f-color {
+	color: #15231b;
+	font-size: 24rpx;
+}
+.iconfont {
+	font-size: 24rpx;
+}
 .f-active-color {
-	color: #49BDFB;
+	color: #68b88e;
 }
 
 .bg-color {
-	background-color: #4207FB;
+	background-color: #b9dec9;
 }
