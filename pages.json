@@ -3,8 +3,9 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "我的商城",
+				"navigationBarTitleText": "NFT",
 				"app-plus": {
+					"scrollIndicator": "none",
 					"titleNView": {
 						"buttons": [{
 							"float": "left",
@@ -43,7 +44,10 @@
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#fff",
 		"navigationBarTextStyle": "black",
-		"backgroundColor": "#fff"
+		"backgroundColor": "#fff",
+		"app-plus": {
+			"scrollIndicator": "none"
+		}
 	},
 	"tabBar": {
 		"iconfontSrc": "static/iconfont.ttf",

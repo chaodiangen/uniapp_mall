@@ -7,21 +7,48 @@ view {
 	color: #15231b;
 	font-size: 28rpx;
 }
+
+image {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+::-webkit-scrollbar {
+	display: none;
+	width: 0 !important;
+	height: 0 !important;
+	-webkit-appearance: none;
+	background: transparent;
+}
+
+
 .uni-title {
 	font-weight: bold;
 	font-size: 30rpx;
 }
+
 .f-color {
 	color: #15231b;
 	font-size: 24rpx;
 }
+
 .iconfont {
 	font-size: 24rpx;
 }
+
 .f-active-color {
 	color: #68b88e;
 }
 
 .bg-color {
 	background-color: #b9dec9;
+}
+
+.border--bottom-line {
+	border-bottom: 1px solid #83cbac;
+}
+
+.border-right-line {
+	border-right: 1px solid #83cbac;
 }

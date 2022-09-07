@@ -20,3 +20,8 @@
 + 底部 tab
 + 放大镜、搜索、垃圾桶、上下箭头、购物车、地理坐标
 - 文字
+### 接口类型
+1. 首页
+	- /api/index_list/daat
+	- /api/index_list/2/data/1 户外运动 
+	- 下来加载更多 /api/index_list/2/data/2

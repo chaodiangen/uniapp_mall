@@ -16,5 +16,13 @@
 	/*每个页面公共css */
 	@import '@/common/uni.css';
 	@import '@/common/common.css';
-	@import url('https://at.alicdn.com/t/c/font_2888072_6hnbyrwv038.css')
+	@import url('https://at.alicdn.com/t/c/font_2888072_6hnbyrwv038.css');
+	::-webkit-scrollbar {
+	    display: none;
+	    width: 0 !important;
+	    height: 0 !important;
+	    -webkit-appearance: none;
+	    background: transparent;
+	    color: transparent;
+	  }
 </style>

@@ -1,5 +1,5 @@
 <template>
-	<view class="icons">
+	<view class="icons border--bottom-line">
 		<view class="icon-item" v-for="item in iconList" :key="item.id">
 			<image class="icon-image" :src="item.url" mode=""></image>
 			<text class="icon-name">{{ item.name }}</text>

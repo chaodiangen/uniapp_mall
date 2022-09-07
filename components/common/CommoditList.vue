@@ -14,7 +14,7 @@
 					{
 						id:1,
 						title: '海贼王索隆图片海贼王索隆图片海贼王索隆图片海贼王索隆图片海贼王索隆图片海贼王索隆图片',
-						url:'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0D/09/ChMkJl3c9hOIbFjaAAWPj9SZEGcAAvboALDH5gABY-n410.jpg',
+						url:'https://img.bizhiku.net/uploads/2022/0809/wcxs5yv2h43.jpg?x-oss-process=style/w_870-h_870',
 						pprice:'889',
 						oprice: '1089',
 						discount: '5.2'

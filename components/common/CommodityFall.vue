@@ -48,12 +48,10 @@
 			let dataR = this.dataList;
 			let len = this.dataList.length;
 			let min = Math.ceil(len / 2);
-			console.log(min)
 			let rightList = dataR.splice(min, len);
 			let leftList = dataL.splice(0, min);
 			this.goodsListR = this.goodsListR.concat(rightList);
 			this.goodsListL = this.goodsListL.concat(leftList);
-			console.log(this.goodsListL)
 		}
 	}
 </script>

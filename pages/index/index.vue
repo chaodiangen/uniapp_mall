@@ -1,13 +1,26 @@
 <template>
 	<view class="content">
-	<!-- 	<Swiper :swiperList="swiperList"></Swiper>
-		<Recommend :recommedList="recommedList"></Recommend>
-		<Card cardTitle="猜你喜欢"></Card>
-		<CommoditList></CommoditList> -->
-		<Banner></Banner>
+		<scroll-view class="scroll-tab" scroll-x="true" :scroll-into-view="scrollIntoIndex">
+			<view :id="'index'+index" v-for="(item,index) in tabBarList" :key="index" @tap="changeTab(index)"
+				:class="['scroll-item',index===tabBarIndex?'f-active-color':'']">
+				<text @click="changeTab(index)">{{ item.name }}</text>
+			</view>
+		</scroll-view>
+		<swiper class="swiper" :current="tabBarIndex" @change="changeSwiper" :style="{'height':clientHeight+'px'}">
+			<swiper-item v-for="(item,index) in tabBarList" :key="index">
+				<view class="home-data">
+					<Swiper :swiperList="swiperList"></Swiper>
+					<Recommend :recommedList="recommedList"></Recommend>
+					<Card cardTitle="猜你喜欢"></Card>
+					<CommoditList></CommoditList>
+				</view>
+			</swiper-item>
+		</swiper>
+		<!-- <Banner></Banner>
 		<Icons></Icons>
 		<Card cardTitle="热销爆品"></Card>
 		<Hot></Hot>
+		<Shop></Shop> -->
 	</view>
 </template>
 
@@ -19,9 +32,33 @@
 	import Banner from '@/components/index/Banner.vue'
 	import Icons from '@/components/index/Icons.vue'
 	import Hot from '@/components/index/Hot.vue'
+	import Shop from '@/components/index/Shop.vue'
 	export default {
 		data() {
 			return {
+				tabBarIndex: 0,
+				scrollIntoIndex: 'index0',
+				// 内置高度
+				clientHeight: '0',
+				tabBarList: [{
+						name: '推荐'
+					},
+					{
+						name: '一级市场'
+					},
+					{
+						name: '交换作品'
+					},
+					{
+						name: '盲盒购选'
+					},
+					{
+						name: '艺术家作品'
+					},
+					{
+						name: '流拍竞拍'
+					},
+				],
 				swiperList: ["http://e.hiphotos.baidu.com/image/pic/item/a1ec08fa513d2697e542494057fbb2fb4316d81e.jpg",
 					"http://c.hiphotos.baidu.com/image/pic/item/30adcbef76094b36de8a2fe5a1cc7cd98d109d99.jpg",
 					"http://h.hiphotos.baidu.com/image/pic/item/7c1ed21b0ef41bd5f2c2a9e953da81cb39db3d1d.jpg",
@@ -73,7 +110,6 @@
 						}]
 					},
 				],
-				
 			}
 		},
 		components: {
@@ -83,21 +119,60 @@
 			CommoditList,
 			Banner,
 			Icons,
-			Hot
+			Hot,
+			Shop
 		},
 		onLoad() {
 
 		},
+		onReady() {
+			let view = uni.createSelectorQuery().select('.home-data')
+			view.boundingClientRect((data) => {
+				this.clientHeight = data.height
+			}).exec()
+		},
 		methods: {
+			changeTab(e) {
+				if (this.tabBarIndex !== e) {
+					this.tabBarIndex = e
+					this.scrollIntoIndex = 'index' + e
+				}
 
+			},
+			changeSwiper(e) {
+				this.changeTab(e.detail.current)
+			}
 		}
 	}
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 	.content {
 		height: 100%;
 		padding-bottom: 100rpx;
 		background-color: #eef7f2;
+	}
+
+	/deep/ .uni-scroll-view-content {
+		display: flex;
+	}
+
+	.scroll-tab {
+		width: 100%;
+		flex-wrap: nowrap;
+		white-space: normal;
+		display: flex;
+
+		.scroll-item {
+			padding: 20rpx 30rpx;
+			font-size: 28rpx;
+			display: flex;
+			flex: none;
+			display: flex;
+		}
+
+		.f-active-color {
+			border-bottom: 6rpx solid #68b88e;
+		}
 	}
 </style>
