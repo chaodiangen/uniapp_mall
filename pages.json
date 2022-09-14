@@ -4,6 +4,7 @@
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "NFT",
+				"navigationBarBackgroundColor": "#fff",
 				"app-plus": {
 					"scrollIndicator": "none",
 					"titleNView": {
@@ -37,6 +38,64 @@
 				"navigationBarTitleText": "购物车",
 				"enablePullDownRefresh": false
 			}
+		}, {
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarBackgroundColor": "#fff",
+				"app-plus": {
+					"scrollIndicator": "none",
+					"titleNView": {
+						"searchInput": {
+							"autoFocus": true,
+							"placeholder": "请输入需要搜索的商品",
+							"disabled": false,
+							"align": "left",
+							"borderRadius": "20px",
+							"backgroundColor": "#dadada",
+							"placeholderColor": "#999"
+						},
+						"buttons": [{
+							"float": "right",
+							"fontSize": "16px",
+							"text": "搜索",
+							"aligin": "center",
+							"width": "40px"
+						}]
+					}
+				},
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/search-list/search-list",
+			"style": {
+				"navigationBarBackgroundColor": "#fff",
+				"app-plus": {
+					"scrollIndicator": "none",
+					"titleNView": {
+						"searchInput": {
+							"autoFocus": true,
+							"placeholder": "请输入需要搜索的商品",
+							"disabled": false,
+							"align": "left",
+							"borderRadius": "20px",
+							"backgroundColor": "#dadada",
+							"placeholderColor": "#999"
+						},
+						"buttons": [{
+							"float": "right",
+							"fontSize": "16px",
+							"text": "筛选",
+							"aligin": "center",
+							"width": "40px"
+						}]
+					}
+				},
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
 		}
 	],
 	"globalStyle": {

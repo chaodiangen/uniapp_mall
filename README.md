@@ -14,6 +14,8 @@
 		Banner.vue
 		Icons.vue
 8. common			公共文件：全局css文件
+	api
+		request.js
 
 ### 配置文件
 
