@@ -14,6 +14,8 @@
 		Banner.vue
 		Icons.vue
 8. common			公共文件：全局css文件
+	api
+		request.js
 
 ### 配置文件
 
@@ -22,3 +24,16 @@
 	- /api/index_list/daat
 2. 分类数据
 	- /api/index_list/栏目id/data/分页 
+3. 搜索功能
+	- 判断关键词 关键词为空提示信息
+	- 进入搜索页软键盘需要隐藏
+	- 点击软键盘的搜索可以进入搜索界面
+	- 搜索词
+		- 本地存贮记录
+		- 搜索词重复判断
+		- 最新搜索到词循环前置
+	- 清除最近搜索---提示无搜索记录
+
+
+### 数据库设计
+- /api/goods/search    get

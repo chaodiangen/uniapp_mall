@@ -1,12 +1,12 @@
 <template>
 	<view class="commodit-list">
 		<!-- 单个卡片 -->
-		<CommodityFall :dataList="dataList"></CommodityFall>
+		<Commodity :dataList="dataList" ></Commodity>
 	</view>
 </template>
 
 <script>
-	import CommodityFall from './CommodityFall.vue'
+	import Commodity from './Commodity.vue'
 	export default {
 		props: {
 			dataList: {
@@ -14,14 +14,14 @@
 			}
 		},
 		components: {
-			CommodityFall
-		},
-		methods: {
-
+			Commodity
 		}
 	}
 </script>
 
 <style scoped>
+	.commodit-list {
+		display: flex;
+	}
 
 </style>

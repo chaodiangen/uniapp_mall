@@ -22,11 +22,11 @@
 			},
 			itemW: {
 				type: String,
-				default: '370rpx'
+				default: '370'
 			},
 			imgH: {
 				type: String,
-				default: '375rpx'
+				default: '375'
 			},
 			wrap: {
 				type: String,
@@ -47,7 +47,6 @@
 
 			.commodity-img {
 				width: 100%;
-
 			}
 		}
 
