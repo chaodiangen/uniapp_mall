@@ -1,6 +1,6 @@
 <template>
 	<view class="recommend bg-color">
-		<view class="recommend-item" v-for="(item,index) in recommedList" :key="index">
+		<view class="recommend-item" v-for="(item,index) in dataList" :key="index">
 			<view class="item-big">
 				<image :src="item.bigUrl" mode=""></image>
 			</view>
@@ -26,18 +26,10 @@
 <script>
 	export default {
 		props: {
-			recommedList: {
+			dataList: {
 				type: Array
 			}
 		},
-		data() {
-			return {
-
-			}
-		},
-		methods: {
-
-		}
 	}
 </script>
 

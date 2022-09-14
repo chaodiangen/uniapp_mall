@@ -1,26 +1,47 @@
 <template>
 	<view class="content">
 		<scroll-view class="scroll-tab" scroll-x="true" :scroll-into-view="scrollIntoIndex">
-			<view :id="'index'+index" v-for="(item,index) in tabBarList" :key="index" @tap="changeTab(index)"
-				:class="['scroll-item',index===tabBarIndex?'f-active-color':'']">
-				<text @click="changeTab(index)">{{ item.name }}</text>
+			<view style="display: flex;">
+				<view :id="'index'+index" v-for="(item,index) in tabBarList" :key="index" @tap="changeTab(index)"
+					:class="['scroll-item',index===tabBarIndex?'f-active-color':'']">
+					<text @click="changeTab(index)">{{ item.name }}</text>
+				</view>
 			</view>
+
 		</scroll-view>
 		<swiper class="swiper" :current="tabBarIndex" @change="changeSwiper" :style="{'height':clientHeight+'px'}">
-			<swiper-item v-for="(item,index) in tabBarList" :key="index">
-				<view class="home-data">
-					<Swiper :swiperList="swiperList"></Swiper>
-					<Recommend :recommedList="recommedList"></Recommend>
-					<Card cardTitle="猜你喜欢"></Card>
-					<CommoditList></CommoditList>
-				</view>
+			<swiper-item v-for="(item,index) in newTopBar" :key="index">
+				<scroll-view scroll-y="true" :style="{'height':clientHeight+'px'}"
+					style="display: flex;flex-direction: column;">
+					<block v-if="item.data.length>0">
+						<block v-for="(k,i) in item.data" :key="i">
+							<!-- 推荐 -->
+							<Swiper :dataList="k.data" v-if="k.type === 'swiperList'"></Swiper>
+							<Recommend :dataList="k.data" v-if="k.type === 'recommedList'"></Recommend>
+							<template v-if="k.type==='commoditList'">
+								<Card cardTitle="猜你喜欢"></Card>
+								<CommoditList :dataList="k.data"></CommoditList>
+							</template>
+							<!-- 运动户外 -->
+							<Banner v-if="k.type==='bannerList'" :dataList="k.data"></Banner>
+							<template v-if="k.type==='iconsList'">
+								<Icons :dataList="k.data"></Icons>
+								<Card cardTitle="热销爆品"></Card>
+							</template>
+							<template v-if="k.type==='hotList'">
+								<Hot :dataList="k.data"></Hot>
+								<Card cardTitle="推荐店铺"></Card>
+							</template>
+							<template v-if="k.type==='shopList'">
+								<Shop :dataList="k.data"></Shop>
+								<Card cardTitle="为您推荐"></Card>
+							</template>
+						</block>
+					</block>
+					<block v-else>暂无数据...</block>
+				</scroll-view>
 			</swiper-item>
 		</swiper>
-		<!-- <Banner></Banner>
-		<Icons></Icons>
-		<Card cardTitle="热销爆品"></Card>
-		<Hot></Hot>
-		<Shop></Shop> -->
 	</view>
 </template>
 
@@ -39,77 +60,11 @@
 				tabBarIndex: 0,
 				scrollIntoIndex: 'index0',
 				// 内置高度
-				clientHeight: '0',
-				tabBarList: [{
-						name: '推荐'
-					},
-					{
-						name: '一级市场'
-					},
-					{
-						name: '交换作品'
-					},
-					{
-						name: '盲盒购选'
-					},
-					{
-						name: '艺术家作品'
-					},
-					{
-						name: '流拍竞拍'
-					},
-				],
-				swiperList: ["http://e.hiphotos.baidu.com/image/pic/item/a1ec08fa513d2697e542494057fbb2fb4316d81e.jpg",
-					"http://c.hiphotos.baidu.com/image/pic/item/30adcbef76094b36de8a2fe5a1cc7cd98d109d99.jpg",
-					"http://h.hiphotos.baidu.com/image/pic/item/7c1ed21b0ef41bd5f2c2a9e953da81cb39db3d1d.jpg",
-					"http://g.hiphotos.baidu.com/image/pic/item/55e736d12f2eb938d5277fd5d0628535e5dd6f4a.jpg",
-					"http://e.hiphotos.baidu.com/image/pic/item/4e4a20a4462309f7e41f5cfe760e0cf3d6cad6ee.jpg",
-					"http://b.hiphotos.baidu.com/image/pic/item/9d82d158ccbf6c81b94575cfb93eb13533fa40a2.jpg",
-					"http://e.hiphotos.baidu.com/image/pic/item/4bed2e738bd4b31c1badd5a685d6277f9e2ff81e.jpg",
-					"http://g.hiphotos.baidu.com/image/pic/item/0d338744ebf81a4c87a3add4d52a6059252da61e.jpg",
-					"http://a.hiphotos.baidu.com/image/pic/item/f2deb48f8c5494ee5080c8142ff5e0fe99257e19.jpg",
-					"http://f.hiphotos.baidu.com/image/pic/item/4034970a304e251f503521f5a586c9177e3e53f9.jpg",
-					"http://b.hiphotos.baidu.com/image/pic/item/279759ee3d6d55fbb3586c0168224f4a20a4dd7e.jpg",
-					"http://a.hiphotos.baidu.com/image/pic/item/e824b899a9014c087eb617650e7b02087af4f464.jpg",
-					"http://c.hiphotos.baidu.com/image/pic/item/9c16fdfaaf51f3de1e296fa390eef01f3b29795a.jpg",
-					"http://d.hiphotos.baidu.com/image/pic/item/b58f8c5494eef01f119945cbe2fe9925bc317d2a.jpg",
-					"http://h.hiphotos.baidu.com/image/pic/item/902397dda144ad340668b847d4a20cf430ad851e.jpg",
-					"http://b.hiphotos.baidu.com/image/pic/item/359b033b5bb5c9ea5c0e3c23d139b6003bf3b374.jpg",
-					"http://a.hiphotos.baidu.com/image/pic/item/8d5494eef01f3a292d2472199d25bc315d607c7c.jpg",
-					"http://b.hiphotos.baidu.com/image/pic/item/e824b899a9014c08878b2c4c0e7b02087af4f4a3.jpg",
-					"http://g.hiphotos.baidu.com/image/pic/item/6d81800a19d8bc3e770bd00d868ba61ea9d345f2.jpg",
-				],
-				recommedList: [{
-						bigUrl: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0C/05/ChMkJ14dLNeIfJBuAAZKuwc_TagAAwWUAJPWVAABkrT442.jpg',
-						children: [{
-							url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0C/05/ChMkJl4dLNWICWDkAAJuLMSELg4AAwWUAIyjRcAAm5E585.jpg'
-						}, {
-							url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0C/05/ChMkJ14dLNyIUDBWAANHiB77LTsAAwWUALyl1gAA0eg629.jpg'
-						}, {
-							url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0C/05/ChMkJl4dNbmIS-1MAAYHKJ-tub0AAwWXACrfHkABgdA472.jpg'
-						}]
-					},
-					{
-						bigUrl: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/00/07/ChMkJl3qNKaIDNA2AARqqK0FxbEAAvnJAJbLQMABGrA592.jpg',
-						children: [{
-							url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/00/07/ChMkJ13qNJeIcWlLAAXZO1T9wbMAAvnJACT_eMABdlT817.jpg'
-						}, {
-							url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/00/07/ChMkJl3qO7qIUpr0AATXU2iIqowAAvnKwIEVqMABNdr420.jpg'
-						}, {
-							url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/00/07/ChMkJl3qNJ2IFiI6AAOv3s2X_20AAvnJAFb2ZcAA6_2818.jpg'
-						}]
-					},
-					{
-						bigUrl: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0E/08/ChMkJl3g7o-Ibp4nAAYg0I-lImUAAvfjgFkfbYABiDo544.jpg',
-						children: [{
-							url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0E/08/ChMkJ13g7oWIat4NAANPB0GCZbsAAvfjQN2xtcAA08f105.jpg'
-						}, {
-							url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0E/08/ChMkJl3g7oeIaGWyAAI4GY0ZTs8AAvfjQPPAaQAAjgx971.jpg'
-						}, {
-							url: 'https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0E/08/ChMkJl3g7oKIeKcxAAVLWWHqK2QAAvfjQMJ3CUABUtx280.jpg'
-						}]
-					},
-				],
+				clientHeight: 0,
+				tabBarList: [],
+				newTopBar: [],
+				swiperList: [],
+				recommedList: []
 			}
 		},
 		components: {
@@ -123,25 +78,78 @@
 			Shop
 		},
 		onLoad() {
-
+			this.__init();
 		},
 		onReady() {
-			let view = uni.createSelectorQuery().select('.home-data')
-			view.boundingClientRect((data) => {
-				this.clientHeight = data.height
-			}).exec()
+			uni.getSystemInfo({
+				success: (res) => {
+					this.clientHeight = res.windowHeight - uni.upx2px(80) - this.getClientHeight()
+				}
+			})
 		},
 		methods: {
+			__init() {
+				const that = this;
+				uni.request({
+					url: "http://172。20.10.2:3000/index_list/data",
+					success(res) {
+						const data = res.data.data;
+						that.tabBarList = data.tabBarList;
+						that.newTopBar = that.initData(data)
+					}
+				})
+			},
+			initData(data) {
+				let arr = [];
+				for (let i = 0; i < this.tabBarList.length; i++) {
+					let obj = {
+						data: []
+					}
+					if (i === 0) {
+						obj.data = data.data
+					}
+					arr.push(obj)
+				}
+				return arr;
+			},
 			changeTab(e) {
 				if (this.tabBarIndex !== e) {
 					this.tabBarIndex = e
 					this.scrollIntoIndex = 'index' + e
+					this.addData();
 				}
 
 			},
 			changeSwiper(e) {
 				this.changeTab(e.detail.current)
-			}
+			},
+			// 兼容可视区域高度
+			getClientHeight() {
+				const res = uni.getSystemInfoSync()
+				const system = res.platform
+				if (system === 'ios') {
+					return 44 + res.statusBarHeight
+				} else if (system === 'android') {
+					return 48 + res.statusBarHeight
+				} else {
+					return 0
+				}
+				// 获取状态栏高度值
+			},
+			addData() {
+				// 拿到索引
+				let index = this.tabBarIndex
+				// 拿到id
+				let id = this.tabBarList[index].id
+				// 请求不同数据  /2/data/1
+				uni.request({
+					url: `http://172。20.10.2:3000/index_list/${id}/data/1`,
+					success: (res) => {
+						let data = res.data.data
+						this.newTopBar[index].data = [...this.newTopBar[index].data, ...data]
+					}
+				})
+			},
 		}
 	}
 </script>
@@ -151,10 +159,6 @@
 		height: 100%;
 		padding-bottom: 100rpx;
 		background-color: #eef7f2;
-	}
-
-	/deep/ .uni-scroll-view-content {
-		display: flex;
 	}
 
 	.scroll-tab {

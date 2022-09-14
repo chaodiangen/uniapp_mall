@@ -20,5 +20,5 @@
 ### 接口类型
 1. 首页
 	- /api/index_list/daat
-	- /api/index_list/2/data/1 户外运动 
-	- 下拉加载更多 /api/index_list/2/data/2
+2. 分类数据
+	- /api/index_list/栏目id/data/分页 

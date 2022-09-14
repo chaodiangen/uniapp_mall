@@ -3,7 +3,7 @@
 		<view class="uni-margin-wrap">
 			<swiper class="swiper" circular :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval"
 				:duration="duration">
-				<swiper-item heightFix v-for="(item,index) in swiperList" :key="index">
+				<swiper-item heightFix v-for="(item,index) in dataList" :key="index">
 					<image :src="item"></image>
 				</swiper-item>
 			</swiper>
@@ -14,7 +14,7 @@
 <script>
 	export default {
 		props: {
-			swiperList: {
+			dataList: {
 				type: Array
 			}
 		},
