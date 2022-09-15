@@ -16,7 +16,7 @@
 	/*每个页面公共css */
 	@import '@/common/uni.css';
 	@import '@/common/common.css';
-	@import url('https://at.alicdn.com/t/c/font_2888072_6hnbyrwv038.css');
+	@import url('https://at.alicdn.com/t/c/font_2888072_8z4k0fbw1kh.css');
 	::-webkit-scrollbar {
 	    display: none;
 	    width: 0 !important;
