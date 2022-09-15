@@ -1,5 +1,5 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
 		{
 			"path": "pages/index/index",
 			"style": {
@@ -8,37 +8,44 @@
 				"app-plus": {
 					"scrollIndicator": "none",
 					"titleNView": {
-						"buttons": [{
-							"float": "left",
-							"fontSrc": "https://at.alicdn.com/t/c/font_2888072_rglnmyamot9.ttf",
-							"text": "\ue617"
-						}, {
-							"float": "right",
-							"fontSrc": "https://at.alicdn.com/t/c/font_2888072_rglnmyamot9.ttf",
-							"text": "\ue73c"
-						}]
+						"buttons": [
+							{
+								"float": "left",
+								"fontSrc": "https://at.alicdn.com/t/c/font_2888072_rglnmyamot9.ttf",
+								"text": "\ue617"
+							},
+							{
+								"float": "right",
+								"fontSrc": "https://at.alicdn.com/t/c/font_2888072_rglnmyamot9.ttf",
+								"text": "\ue73c"
+							}
+						]
 					}
 				}
 			}
-		}, {
+		},
+		{
 			"path": "pages/list/list",
 			"style": {
 				"navigationBarTitleText": "分类",
 				"enablePullDownRefresh": false
 			}
-		}, {
+		},
+		{
 			"path": "pages/my/my",
 			"style": {
 				"navigationBarTitleText": "我的",
 				"enablePullDownRefresh": false
 			}
-		}, {
+		},
+		{
 			"path": "pages/shop/shop",
 			"style": {
 				"navigationBarTitleText": "购物车",
 				"enablePullDownRefresh": false
 			}
-		}, {
+		},
+		{
 			"path": "pages/search/search",
 			"style": {
 				"navigationBarBackgroundColor": "#fff",
@@ -54,18 +61,20 @@
 							"placeholderColor": "#999",
 							"disabled": false
 						},
-						"buttons": [{
-							"float": "right",
-							"fontSize": "16px",
-							"text": "搜索",
-							"aligin": "center",
-							"width": "40px"
-						}]
+						"buttons": [
+							{
+								"float": "right",
+								"fontSize": "16px",
+								"text": "搜索",
+								"aligin": "center",
+								"width": "40px"
+							}
+						]
 					}
 				}
 			}
-
-		}, {
+		},
+		{
 			"path": "pages/search-list/search-list",
 			"style": {
 				"navigationBarBackgroundColor": "#fff",
@@ -81,19 +90,20 @@
 							"placeholderColor": "#999",
 							"disabled": false
 						},
-						"buttons": [{
-							"float": "right",
-							"fontSize": "16px",
-							"text": "筛选",
-							"aligin": "center",
-							"width": "40px"
-						}]
+						"buttons": [
+							{
+								"float": "right",
+								"fontSize": "16px",
+								"text": "筛选",
+								"aligin": "center",
+								"width": "40px"
+							}
+						]
 					}
 				},
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
-
 		}
 	],
 	"globalStyle": {
@@ -112,7 +122,8 @@
 		"selectedColor": "#68b88e",
 		"spacing": "2px",
 		"height": "106rpx",
-		"list": [{
+		"list": [
+			{
 				"pagePath": "pages/index/index",
 				"text": "首页",
 				"iconPath": "static/tabbar/index.png",

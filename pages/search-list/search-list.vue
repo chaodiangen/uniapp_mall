@@ -30,6 +30,4 @@
 	}
 </script>
 
-<style>
 
-</style>

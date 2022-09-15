@@ -1,6 +1,7 @@
+
 <template>
 	<view class="search">
-		<!-- <Lines /> -->
+		<Lines />
 		<view class="search-item">
 			<view class="search-title">
 				<text>最近搜索</text>
