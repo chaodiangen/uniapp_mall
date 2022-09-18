@@ -1,4 +1,15 @@
 {
-  "navigationBarTitleText": "我的商城",
-  "usingComponents": {}
+  "navigationBarTitleText": "NFT",
+  "navigationBarBackgroundColor": "#fff",
+  "usingComponents": {
+    "swiper": "/components/index/Swiper",
+    "recommend": "/components/index/Recommend",
+    "card": "/components/common/Card",
+    "commodit-list": "/components/common/CommoditList",
+    "commodity-fall-list": "/components/common/CommodityFallList",
+    "banner": "/components/index/Banner",
+    "icons": "/components/index/Icons",
+    "hot": "/components/index/Hot",
+    "shop": "/components/index/Shop"
+  }
 }

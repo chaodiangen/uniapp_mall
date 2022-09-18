@@ -1,0 +1,11 @@
+
+.card.data-v-3879f0e9 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 20rpx;
+}
+.card-name.data-v-3879f0e9 {
+	margin: 0 16rpx;
+}
+

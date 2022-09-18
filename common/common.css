@@ -44,6 +44,9 @@ image {
 .bg-color {
 	background-color: #b9dec9;
 }
+.bg-color-active {
+	background-color: #68b88e !important;
+}
 
 .border--bottom-line {
 	border-bottom: 1px solid #83cbac;

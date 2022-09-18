@@ -1,4 +1,3 @@
-
 <template>
 	<view class="search">
 		<Lines />
@@ -8,7 +7,8 @@
 				<i class="iconfont icon-lajitong" @click="handleDelete"></i>
 			</view>
 			<view v-if="searchData.length > 0">
-				<view class="seach-name f-color" v-for="(item,index) in searchData" :key="index">{{item}}</view>
+				<view @tap="toSearchList(item)" class="seach-name f-color" v-for="(item,index) in searchData"
+					:key="index">{{item}}</view>
 			</view>
 			<view v-else class="search-data">
 				无搜索记录
@@ -98,8 +98,11 @@
 						}
 					}
 				});
-
-
+			},
+			toSearchList(e) {
+				uni.navigateTo({
+					url:'/pages/search-list/search-list?keyWord='+e
+				})
 			}
 		}
 	}

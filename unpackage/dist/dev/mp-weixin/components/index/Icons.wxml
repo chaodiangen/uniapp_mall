@@ -1,0 +1,1 @@
+<view class="icons border--bottom-line data-v-4d8061dc"><block wx:for="{{dataList}}" wx:for-item="item" wx:for-index="__i0__" wx:key="id"><view class="icon-item data-v-4d8061dc"><image class="icon-image data-v-4d8061dc" src="{{item.url}}" mode></image><text class="icon-name data-v-4d8061dc">{{item.name}}</text></view></block></view>

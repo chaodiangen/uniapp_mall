@@ -1,0 +1,1 @@
+<view class="commodit-list data-v-0d726a06"><commodity-fall vue-id="2f9315a9-1" dataList="{{dataList}}" class="data-v-0d726a06" bind:__l="__l"></commodity-fall></view>

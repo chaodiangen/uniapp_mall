@@ -1,6 +1,5 @@
 {
-	"pages": [
-		{
+	"pages": [{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "NFT",
@@ -8,8 +7,7 @@
 				"app-plus": {
 					"scrollIndicator": "none",
 					"titleNView": {
-						"buttons": [
-							{
+						"buttons": [{
 								"float": "left",
 								"fontSrc": "https://at.alicdn.com/t/c/font_2888072_rglnmyamot9.ttf",
 								"text": "\ue617"
@@ -27,8 +25,21 @@
 		{
 			"path": "pages/list/list",
 			"style": {
-				"navigationBarTitleText": "分类",
-				"enablePullDownRefresh": false
+				"navigationBarBackgroundColor": "#fff",
+				"app-plus": {
+					"scrollIndicator": "none",
+					"titleNView": {
+						"searchInput": {
+							"autoFocus": false,
+							"placeholder": "请输入关键字",
+							"align": "left",
+							"borderRadius": "20px",
+							"backgroundColor": "#dadada",
+							"placeholderColor": "#999",
+							"disabled": true
+						}
+					}
+				}
 			}
 		},
 		{
@@ -61,15 +72,13 @@
 							"placeholderColor": "#999",
 							"disabled": false
 						},
-						"buttons": [
-							{
-								"float": "right",
-								"fontSize": "16px",
-								"text": "搜索",
-								"aligin": "center",
-								"width": "40px"
-							}
-						]
+						"buttons": [{
+							"float": "right",
+							"fontSize": "16px",
+							"text": "搜索",
+							"aligin": "center",
+							"width": "40px"
+						}]
 					}
 				}
 			}
@@ -90,22 +99,43 @@
 							"placeholderColor": "#999",
 							"disabled": false
 						},
-						"buttons": [
-							{
-								"float": "right",
-								"fontSize": "16px",
-								"text": "筛选",
-								"aligin": "center",
-								"width": "40px"
-							}
-						]
+						"buttons": [{
+							"float": "right",
+							"fontSize": "16px",
+							"text": "筛选",
+							"aligin": "center",
+							"width": "40px"
+						}]
 					}
 				},
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/details/details",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "商品详情",
+                "enablePullDownRefresh": false,
+				"app-plus": {
+					"scrollIndicator": "none",
+					"titleNView": {
+						"type": "transparent",
+						"buttons": [
+							{
+								"type": "menu"
+							},
+							{
+								"type": "share"
+							}
+						]
+					}
+				}
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
@@ -122,8 +152,7 @@
 		"selectedColor": "#68b88e",
 		"spacing": "2px",
 		"height": "106rpx",
-		"list": [
-			{
+		"list": [{
 				"pagePath": "pages/index/index",
 				"text": "首页",
 				"iconPath": "static/tabbar/index.png",

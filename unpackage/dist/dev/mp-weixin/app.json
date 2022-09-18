@@ -3,7 +3,10 @@
     "pages/index/index",
     "pages/list/list",
     "pages/my/my",
-    "pages/shop/shop"
+    "pages/shop/shop",
+    "pages/search/search",
+    "pages/search-list/search-list",
+    "pages/details/details"
   ],
   "subPackages": [],
   "window": {
@@ -15,7 +18,7 @@
   "tabBar": {
     "iconfontSrc": "static/iconfont.ttf",
     "color": "#485460",
-    "selectedColor": "#0fbcf9",
+    "selectedColor": "#68b88e",
     "spacing": "2px",
     "height": "106rpx",
     "list": [

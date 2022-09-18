@@ -1,7 +1,7 @@
 <template>
 	<view class="commodity">
 		<view class="commodity-left">
-			<view class="commodity-item" v-for="(item,i) in goodsListL" :key="item.id*i">
+			<view class="commodity-item" @tap="goDetail(item)" v-for="(item,i) in goodsListL" :key="item.id*i">
 				<image class="commodity-img" :src="item.url" mode=""></image>
 				<view class="commodity-content">
 					<text class="commodity-name uni-product-title">{{ item.title }}</text>
@@ -52,6 +52,13 @@
 			let leftList = dataL.splice(0, min);
 			this.goodsListR = this.goodsListR.concat(rightList);
 			this.goodsListL = this.goodsListL.concat(leftList);
+		},
+		methods: {
+			goDetail(e) {
+				uni.navigateTo({
+					url: '/pages/details/details'
+				})
+			}
 		}
 	}
 </script>
@@ -60,6 +67,7 @@
 	.commodity {
 		display: flex;
 		justify-content: space-between;
+
 		.commodity-right,
 		.commodity-left {
 			display: flex;
@@ -73,6 +81,7 @@
 			background-color: #fff;
 			box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.2);
 			margin-bottom: 20rpx;
+
 			.commodity-img {
 				width: 100%;
 				height: 375rpx;
