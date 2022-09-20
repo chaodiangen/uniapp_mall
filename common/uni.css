@@ -1352,6 +1352,25 @@ image {
 	z-index: 101;
 	background: #F4F5F6;
 }
+/* 文字省略 */
+/* 一行省略 */
+.uni-text-one {
+	font-size: 10pt!important;
+	overflow: hidden !important;
+	text-overflow: ellipsis !important;
+	display: -webkit-box !important;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
+/* 多行省略 */
+.uni-text-more {
+	font-size: 10pt!important;
+	overflow: hidden !important;
+	text-overflow: ellipsis !important;
+	display: -webkit-box !important;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
 
 .uni-divider__line {
 	background-color: #CCCCCC;
@@ -1367,3 +1386,8 @@ image {
 .left-win-active text {
 	color: #007AFF !important;
 }
+
+/deep/ .uni-radio-input {
+		width: 40rpx;
+		height: 40rpx;
+	}

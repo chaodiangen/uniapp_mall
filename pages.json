@@ -46,14 +46,22 @@
 			"path": "pages/my/my",
 			"style": {
 				"navigationBarTitleText": "我的",
-				"enablePullDownRefresh": false
+				"enablePullDownRefresh": false,
+				"app-plus": {
+					"scrollIndicator": "none",
+					"titleNView": "none"
+				}
 			}
 		},
 		{
 			"path": "pages/shop/shop",
 			"style": {
 				"navigationBarTitleText": "购物车",
-				"enablePullDownRefresh": false
+				"enablePullDownRefresh": false,
+				"app-plus": {
+					"scrollIndicator": "none",
+					"titleNView": false
+				}
 			}
 		},
 		{
@@ -111,19 +119,16 @@
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
-		}
-	    ,{
-            "path" : "pages/details/details",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "商品详情",
-                "enablePullDownRefresh": false,
+		}, {
+			"path": "pages/details/details",
+			"style": {
+				"navigationBarTitleText": "商品详情",
+				"enablePullDownRefresh": false,
 				"app-plus": {
 					"scrollIndicator": "none",
 					"titleNView": {
 						"type": "transparent",
-						"buttons": [
-							{
+						"buttons": [{
 								"type": "menu"
 							},
 							{
@@ -132,10 +137,43 @@
 						]
 					}
 				}
-            }
-            
-        }
-    ],
+			}
+
+		}, {
+			"path": "pages/my-config/my-config",
+			"style": {
+				"navigationBarTitleText": "设置",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/my-path-list/my-path-list",
+			"style": {
+				"navigationBarTitleText": "地址管理",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/my-add-path/my-add-path",
+			"style": {
+				"navigationBarTitleText": "新增地址",
+				"enablePullDownRefresh": false,
+				"app-plus": {
+					"scrollIndicator": "none",
+					"titleNView": {
+						"buttons": [{
+							"float": "right",
+							"fontSize": "16px",
+							"text": "保存",
+							"aligin": "center",
+							"width": "40px"
+						}]
+					}
+				}
+			}
+
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

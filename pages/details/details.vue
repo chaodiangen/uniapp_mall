@@ -25,7 +25,7 @@
 				<view class="foot-item icon">
 					<view class="iconfont icon-xiaoxi"></view>
 				</view>
-				<view class="foot-item icon" @tap="addShop">
+				<view class="foot-item icon" @tap="goShopCart">
 					<view class="iconfont icon-31gouwuche"></view>
 				</view>
 			</view>
@@ -50,9 +50,9 @@
 				</view>
 				<view class="pop-sub">
 					<view class="">购买数量</view>
-					<UniNumberBox :min="1"></UniNumberBox>
+					<uni-number-box :min="1" @change="changeValue"></uni-number-box>
 				</view>
-				<view class="pop-submit">
+				<view class="pop-submit" @tap="addCart">
 					<button>确定</button>
 				</view>
 			</view>
@@ -63,7 +63,10 @@
 <script>
 	import Car from '@/components/common/Card.vue';
 	import CommoditList from '@/components/common/CommoditList.vue';
-	import UniNumberBox from '@/components/uni/uni-number-box.vue';
+	import UniNumberBox from '@/uni_modules/uni-number-box/components/uni-number-box/uni-number-box.vue'
+	import {
+		mapMutations
+	} from 'vuex'
 	export default {
 		components: {
 			Car,
@@ -80,7 +83,13 @@
 					"https://yanxuan-item.nosdn.127.net/86a319374ecc3d8adb97569f07b802e7.png",
 				],
 				detail: {
-					name: "快速吸水，2毫米豆腐猫砂  原味 2.6千克"
+					checked: false,
+					id: 1,
+					name: '迪士尼宝宝（Disney Baby）婴儿浴巾 宝宝六层纯棉纱布浴巾洗澡巾新生儿纱布浴巾抱巾包单大毛巾 薄荷绿*1',
+					color: '颜色',
+					imgUrl: 'https://img4.pconline.com.cn/pconline/images/product/20220920/2224665.jpg',
+					price: '39.9',
+					num: 1,
 				},
 				characteristicList: [
 					"https://yanxuan-item.nosdn.127.net/d41c5086cc736a25a1d20ef00d4cfd41.jpg?quality=75&type=webp&imageView",
@@ -93,7 +102,8 @@
 					"https://yanxuan-item.nosdn.127.net/0def2ea30369fe4561b378e45cc24f62.jpg?quality=75&type=webp&imageView",
 				],
 				isShow: false,
-				animationData: {}
+				animationData: {},
+				number: 1
 			}
 		},
 		onNavigationBarButtonTap(e) {
@@ -119,6 +129,7 @@
 			}
 		},
 		methods: {
+			...mapMutations(['addShopCart']),
 			addShop() {
 				const animation = uni.createAnimation({
 					duration: 200,
@@ -142,7 +153,26 @@
 					this.isShow = false
 				}.bind(this), 200)
 			},
-		}
+			changeValue(value) {
+				this.number = value
+			},
+			goShopCart() {
+				uni.switchTab({
+					url: '/pages/shop/shop'
+				})
+			},
+			addCart() {
+				this.detail['checked'] = false
+				this.detail['id'] = 99
+				this.detail['num'] = this.number
+				this.addShopCart(this.detail)
+				this.closeShow()
+				uni.showToast({
+					title: '成功加入购物车',
+					icon: 'none'
+				})
+			}
+		},
 	}
 </script>
 
@@ -217,11 +247,13 @@
 			border-radius: 20rpx;
 			margin: 0 10rpx;
 		}
+
 		.icon {
 			color: #fff;
 			width: 50rpx;
 			height: 50rpx;
-			.iconfont{
+
+			.iconfont {
 				font-size: 50rpx;
 			}
 		}

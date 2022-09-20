@@ -1,4 +1,5 @@
 import App from './App'
+import store from 'store/index.js'
 
 // #ifndef VUE3
 import Vue from 'vue'
@@ -9,6 +10,9 @@ const app = new Vue({
 })
 app.$mount()
 // #endif
+
+Vue.prototype.$store = store
+Vue.use(store)
 
 // #ifdef VUE3
 import { createSSRApp } from 'vue'
