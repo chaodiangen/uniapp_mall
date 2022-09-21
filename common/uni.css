@@ -1364,7 +1364,6 @@ image {
 }
 /* 多行省略 */
 .uni-text-more {
-	font-size: 10pt!important;
 	overflow: hidden !important;
 	text-overflow: ellipsis !important;
 	display: -webkit-box !important;

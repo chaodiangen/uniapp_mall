@@ -18,15 +18,16 @@
 		<view class="order">
 			<view class="order-title">
 				<view>我的订单</view>
-				<view class="f-color">
-					全部订单
+				<view class="f-color" @tap="goOrder">
+					<text>全部订单</text>
+					<i class="iconfont icon-xiangyou"></i>
 				</view>
 			</view>
-			<view class="order-list">
+	<!-- 		<view class="order-list">
 				<view class="order-item">
-					<i class="iconfont"></i>
+					<i class="iconfont icon-xiangyou"></i>
 				</view>
-			</view>
+			</view> -->
 		</view>
 	</view>
 </template>
@@ -42,6 +43,11 @@
 			goConfig() {
 				uni.navigateTo({
 					url: '/pages/my-config/my-config'
+				})
+			},
+			goOrder() {
+				uni.navigateTo({
+					url: '/pages/my-order/my-order'
 				})
 			}
 		}
@@ -92,5 +98,11 @@
 			text-align: center;
 			margin-top: 10rpx;
 		}
+	}
+
+	.order-title {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 	}
 </style>

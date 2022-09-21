@@ -172,6 +172,14 @@
 				}
 			}
 
+		}, {
+			"path": "pages/my-order/my-order",
+			"style": {
+				"navigationBarTitleText": "我的订单",
+				"enablePullDownRefresh": false,
+				"backgroundColor": "#fff"
+			}
+
 		}
 	],
 	"globalStyle": {
