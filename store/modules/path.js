@@ -15,7 +15,9 @@ export default {
 		}]
 	},
 	getters: {
-
+		defaultPath(state) {
+			return state.list.filter(v => v.isDefault === true)
+		}
 	},
 	mutations: {
 		createPath(state, payload) {

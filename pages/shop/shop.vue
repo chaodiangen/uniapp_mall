@@ -47,7 +47,7 @@
 				<template v-if="!isNavBar">
 					<view class="foot-total">
 						<view class="foot-count">合计：<text class="f-active-color">{{totalCount.num}}</text></view>
-						<view class="foot-sum">
+						<view class="foot-sum" @tap="goConfig">
 							结算（{{totalCount.pprice}}）
 						</view>
 					</view>
@@ -97,12 +97,17 @@
 			...mapGetters(['checkedAll', 'totalCount'])
 		},
 		methods: {
-			...mapActions(['checkedAllFn','deleteGoods']),
+			...mapActions(['checkedAllFn', 'deleteGoods']),
 			...mapMutations(['selectItem']),
 			changeValue(value, id) {
 				let index = this.list.findIndex(v => v.id === id)
 				this.list[index].num = value
 			},
+			goConfig() {
+				uni.navigateTo({
+					url: '/pages/confim-order/confim-order'
+				})
+			}
 		}
 	}
 </script>

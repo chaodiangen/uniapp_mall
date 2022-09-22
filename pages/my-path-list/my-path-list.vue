@@ -1,7 +1,7 @@
 <template>
 	<view class="my-path-list">
 		<view class="path-list" v-for="(item,index) in list" :key="index" @tap="toAddPath(index)">
-			<view class="path-item">
+			<view class="path-item" @tap="config(item)">
 				<view class="item">
 					<view class="">
 						{{item.name}}
@@ -36,13 +36,18 @@
 	export default {
 		data() {
 			return {
-
+				isSelectPath: false
 			}
 		},
 		computed: {
 			...mapState({
 				list: state => state.path.list
 			})
+		},
+		onLoad(e) {
+			if (e.type === 'selectPath') {
+				this.isSelectPath = true
+			}
 		},
 		methods: {
 			goAddPath() {
@@ -56,8 +61,18 @@
 					item: this.list[index]
 				})
 				uni.navigateTo({
-					url:'/pages/my-add-path/my-add-path?data='+pathObj+''
+					url: '/pages/my-add-path/my-add-path?data=' + pathObj + ''
 				})
+			},
+			// 返回确认订单界面
+			config(item) {
+				if (this.isSelectPath) {
+					uni.$emit('selectPathItem',item)
+					uni.navigateBack({
+						delta: 1
+					})
+				}
+
 			}
 		}
 	}

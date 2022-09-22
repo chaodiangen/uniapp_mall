@@ -180,8 +180,35 @@
 				"backgroundColor": "#fff"
 			}
 
+		}, {
+			"path": "pages/confim-order/confim-order",
+			"style": {
+				"navigationBarTitleText": "确认订单",
+				"enablePullDownRefresh": false
+			}
+
 		}
-	],
+	    ,{
+            "path" : "pages/payment/payment",
+            "style" :                                                                                    
+            {
+				"app-plus": {
+					"titleNView": false,
+					"scrollIndicator": "none"
+				}
+            }
+            
+        }
+        ,{
+            "path" : "pages/payment-sucess/payment-sucess",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
